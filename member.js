@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!token) {
         // Redirect to login page if token is not present
-        window.location.href = '/frontend/index.html';
+        window.location.href = '/index.html';
         return;
     }
 
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             contentDiv.innerHTML = '<p>Error loading borrowed books. Please try again later.</p>';
             if (error.message.includes('Unauthorized') || error.message.includes('No token found')) {
                 localStorage.removeItem('token');
-                window.location.href = '/frontend/login.html';
+                window.location.href = '/login.html';
             }
         }
     });
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const data = await response.json();
                     localStorage.removeItem('token');
                     alert(data.message || 'Your account has been deleted.');
-                    window.location.href = '/frontend/index.html';
+                    window.location.href = '/index.html';
                 } else if (response.status === 401) {
                     throw new Error('Unauthorized. Please log in again.');
                 } else {
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert(error.message || 'An error occurred while deleting your account. Please try again later.');
                 if (error.message.includes('Unauthorized')) {
                     localStorage.removeItem('token');
-                    window.location.href = '/frontend/login.html';
+                    window.location.href = '/login.html';
                 }
             }
         }
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     logoutBtn.addEventListener('click', () => {
         localStorage.removeItem('user');
-        window.location.href = '/frontend/index.html';
+        window.location.href = '/index.html';
     });
 
     function displayBooks(books) {
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(error.message || 'An error occurred while borrowing the book. Please try again later.');
             if (error.message.includes('Unauthorized') || error.message.includes('No token found')) {
                 localStorage.removeItem('token');
-                window.location.href = '/frontend/login.html';
+                window.location.href = '/login.html';
             }
         }
     }
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(error.message || 'An error occurred while returning the book. Please try again later.');
             if (error.message.includes('Unauthorized') || error.message.includes('No token found')) {
                 localStorage.removeItem('token');
-                window.location.href = '/frontend/login.html';
+                window.location.href = '/login.html';
             }
         }
     }
@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(error.message || 'An error occurred while fetching borrowed books. Please try again later.');
             if (error.message.includes('Unauthorized') || error.message.includes('No token found')) {
                 localStorage.removeItem('token');
-                window.location.href = '/frontend/login.html';
+                window.location.href = '/login.html';
             }
         }
     }
