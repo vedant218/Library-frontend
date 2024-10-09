@@ -101,16 +101,16 @@ function redirectUser(role) {
     
     role = role.toLowerCase();
     const currentPage = window.location.pathname;
-    if (role === 'librarian' && currentPage !== '/frontend/librarian-dashboard.html') {
-        window.location.href = '/frontend/librarian-dashboard.html';
-    } else if (role === 'member' && currentPage !== '/frontend/member-dashboard.html') {
-        window.location.href = '/frontend/member-dashboard.html';
-    } else if (currentPage === '/frontend/index.html' || currentPage === '/') {
+    if (role === 'librarian' && currentPage !== '/librarian-dashboard.html') {
+        window.location.href = '/librarian-dashboard.html';
+    } else if (role === 'member' && currentPage !== '/member-dashboard.html') {
+        window.location.href = '/member-dashboard.html';
+    } else if (currentPage === '/index.html' || currentPage === '/') {
         // If on the login page, redirect based on role
         if (role === 'librarian') {
-            window.location.href = '/frontend/librarian-dashboard.html';
+            window.location.href = '/librarian-dashboard.html';
         } else if (role === 'member') {
-            window.location.href = '/frontend/member-dashboard.html';
+            window.location.href = '/member-dashboard.html';
         }
     } else {
         console.log('User already on correct dashboard');
