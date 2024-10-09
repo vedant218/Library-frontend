@@ -204,7 +204,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-   // ... existing code ...
 
 window.editBook = async (bookId) => {
     try {
@@ -226,8 +225,7 @@ window.editBook = async (bookId) => {
                 });
                 return;
             }
-        }
-        
+        }        
         // If we couldn't find the book in the list, show an error
         throw new Error('Book not found');
     } catch (error) {
@@ -281,7 +279,6 @@ function displayEditBookForm(book) {
     });
 };
 
-// ... existing code ...
 
     window.deleteBook = async (bookId) => {
         if (confirm('Are you sure you want to delete this book?')) {
@@ -327,7 +324,7 @@ function displayEditBookForm(book) {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem('token')}` // Assuming you store the token in localStorage
+                        'Authorization': `Bearer ${localStorage.getItem('token')}` 
                     },
                     body: JSON.stringify({ title, author })
                 });
@@ -347,14 +344,13 @@ function displayEditBookForm(book) {
     };
 
     window.editMember = (username) => {
-        // Implement edit member functionality
         alert(`Edit member functionality for username ${username} will be implemented here.`);
     };
 
     window.deleteMember = async (memberId) => {
         if (confirm('Are you sure you want to delete this member?')) {
             try {
-                console.log(`Attempting to delete member with ID: ${memberId}`); // Add this line for debugging
+                console.log(`Attempting to delete member with ID: ${memberId}`); 
                 const response = await fetch(`${API_URL}/member/delete/${memberId}`, {
                     method: 'DELETE',
                     headers: {
@@ -377,7 +373,6 @@ function displayEditBookForm(book) {
     };
 
     window.addMember = () => {
-        // Implement add member functionality
         alert('Add member functionality will be implemented here.');
     };
 
@@ -400,7 +395,6 @@ function displayEditBookForm(book) {
 
     console.log('Librarian dashboard script loaded');
 
-    // Member management functions
     window.viewMembers = async () => {
         try {
             const token = localStorage.getItem('token');
@@ -430,7 +424,7 @@ function displayEditBookForm(book) {
             
             // If unauthorized, redirect to login
             if (error.message === 'Unauthorized: Please log in again') {
-                logout(); // Implement this function to clear local storage and redirect to login page
+                logout();
             }
         }
     };
