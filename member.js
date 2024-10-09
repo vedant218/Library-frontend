@@ -120,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ` : '<p>No books are currently available.</p>'}
         `;
 
-        // Add event listeners to borrow buttons
         document.querySelectorAll('.borrow-btn').forEach(button => {
             button.addEventListener('click', handleBorrowBook);
         });
@@ -144,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 const result = await response.json();
                 alert(result.detail || 'Book borrowed successfully');
-                // Refresh the book list
+
                 const booksResponse = await fetch(`${API_URL}/books`);
                 if (booksResponse.ok) {
                     const books = await booksResponse.json();
