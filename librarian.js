@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     logoutBtn.addEventListener('click', () => {
         localStorage.removeItem('user');
-        window.location.href = '/frontend/index.html';
+        window.location.href = '/index.html';
     });
 
     function displayBooks(books) {
